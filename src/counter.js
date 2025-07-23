@@ -24,4 +24,80 @@ export function setupCounter() {
   ];
 
   matrixZigzag(matrix);
+
+
+    
+function printLpattern(arr,m=arr.length, n=arr[0].length) {
+  let row=0;
+  let col=0;
+  let res = [];
+  while(row<m && col<n) {
+  for(let i=0; i<m; i++) {
+    res.push(arr[i][col]);
+  }
+  col++;
+  for(let j=col; j<n; j++) {
+    res.push(arr[m-1][j]);
+  }
+  m--;
+}
+console.log(res);
+return res;
+}
+
+let matrixl = [
+[1 ,2, 3, 4],
+[5, 6, 7, 8],
+[9, 10, 11, 12],
+[13, 14, 15, 16],
+[17, 18, 19, 20]
+  ]
+  
+printLpattern(matrixl);
+
+function matrixDiagonalDiff(arr) {
+  let d1 = 0;
+  let d2 =0;
+  let top =0;
+  let bottom = arr.length -1;
+  for(let i=0; i<arr[0].length; i++) {
+    d1+=arr[top++][i];
+    d2+=arr[bottom--][i];
+  }
+
+  console.log(Math.abs(d1-d2));
+  return Math.abs(d1-d2)
+}
+
+let matrixDiagonal = [
+[1, 2, 2],
+[4, 25, 6],
+[7, 8, 9]
+
+  ]
+  
+matrixDiagonalDiff(matrixDiagonal); 
+
+function rotateMatrixClock(arr) {
+  let n = arr.length;
+  let m = arr[0].length;
+ let rotated = Array.from({length: m} , () => Array(n).fill(0));
+  for(let i=0; i<n; i++) {
+    for(let j=0; j<m; j++) {
+      rotated[j][n-1-i] = arr[i][j];
+    }
+  }
+  console.log(rotated);
+  return rotated;
+}
+
+let matixClock =[
+  [1,2,3,4],
+  [5,6,7,8],
+  [9,10,11,12],
+  [13,14,15,16]
+  ];
+
+  
+rotateMatrixClock(matixClock);
 }

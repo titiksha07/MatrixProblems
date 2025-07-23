@@ -131,7 +131,7 @@ let matixAntiClock =[
   */
 
 
-    
+// If one row/column is 0 set the entire rows and columns to 0 
 function setZeroes(arr) {
   let zeroCol = new Set();
   let zeroRow = new Set();
@@ -165,4 +165,35 @@ const arr = [
 
  
 console.log(setZeroes(arr));
+
+
+// Move zeroes to end
+
+function moveZeroesHelper(arr) {
+  let pointer = 0;
+  for(let i=0; i<arr.length; i++) {
+    if(arr[i]!== 0) {
+      if(i!==pointer) {
+        [arr[pointer],arr[i]] = [arr[i], arr[pointer]];
+      }
+      pointer++;
+    }
+  }
+}
+ 
+ 
+function moveZeroes(matrix) {
+ for(let r of matrix) {
+   moveZeroesHelper(r);
+ }
+ return matrix;
+}
+
+const matrx = [
+ [0,1,0,3,12],
+ [0,1,0,0,12],
+ [1,1,0,3,12]
+];
+
+console.log(moveZeroes(matrx))
 }

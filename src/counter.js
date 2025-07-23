@@ -129,4 +129,40 @@ let matixAntiClock =[
 
   Anticlockwise: Column becomes row but 1st col becomes last row
   */
+
+
+    
+function setZeroes(arr) {
+  let zeroCol = new Set();
+  let zeroRow = new Set();
+  for(let i=0; i<arr.length; i++) {
+    for(let j=0; j<arr[0].length; j++) {
+      if(arr[i][j] === 0) {
+        zeroRow.add(i);
+        zeroCol.add(j);
+      }
+    }
+  }
+  for(let r of zeroRow) {
+    for(let j=0; j<arr[0].length; j++) {
+      arr[r][j] = 0;
+    }
+  }
+   for(let c of zeroCol) {
+    for(let j=0; j<arr.length; j++) {
+      arr[j][c] = 0;
+    }
+  }
+  return arr;
+}
+
+
+const arr = [
+ [1,1,1],
+ [1,0,1],
+ [1,1,1]
+];
+
+ 
+console.log(setZeroes(arr));
 }

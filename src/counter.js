@@ -100,4 +100,33 @@ let matixClock =[
 
   
 rotateMatrixClock(matixClock);
+
+function rotateMatrixAntiClock(arr) {
+  let n = arr.length;
+  let m = arr[0].length;
+ let rotated = Array.from({length: m} , () => Array(n).fill(0));
+  for(let i=0; i<n; i++) {
+    for(let j=0; j<m; j++) {
+      rotated[m-1-j][i] = arr[i][j];
+    }
+  }
+  console.log(rotated);
+  return rotated;
+}
+
+let matixAntiClock =[
+ [1,2,3],
+ [4,5,6],
+ [7,8,9]
+  ];
+
+  
+  rotateMatrixAntiClock(matixClock);
+
+
+  /* Notes for matrix clockwise and anticlockwise 
+  Clockwise: Column becomes row , but 1st col becomes 1st row and then row is reversed
+
+  Anticlockwise: Column becomes row but 1st col becomes last row
+  */
 }
